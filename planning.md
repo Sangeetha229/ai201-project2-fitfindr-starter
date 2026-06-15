@@ -205,6 +205,34 @@ All tools are expected to fail gracefully and never crash the pipeline. The plan
 ## Architecture
 
 
+User query
+    │
+    ▼
+Planning Loop ───────────────────────────────────────────┐
+    │                                                    │
+    ├─► search_listings(description, size, max_price)    │
+    │       │ results=[]                                 │
+    │       ├──► [ERROR] "No listings found..." → return │
+    │       │                                            │
+    │       │ results=[item, ...]                        │
+    │       ▼                                            │
+    │   Session: selected_item = results[0]              │
+    │       │                                            │
+    ├─► suggest_outfit(selected_item, wardrobe)          │
+    │       │                                            │
+    │   Session: outfit_suggestion = "..."               │
+    │       │                                            │
+    └─► create_fit_card(outfit_suggestion, selected_item)│
+            │                                            │
+        Session: fit_card = "..."                        │
+            │                                            └─ error path returns here
+            ▼
+        Return session
+
+
+        
+
+
                          ┌────────────────────────────┐
                          │            USER            │
                          │  "vintage tee under $30"   │

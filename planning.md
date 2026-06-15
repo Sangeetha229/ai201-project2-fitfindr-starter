@@ -21,7 +21,7 @@ When the wardrobe is empty, the agent must return general styling advice instead
 
 Search the mock listings dataset for items matching the description,
 optional size, and optional price ceiling.
-Search: search_listings("vintage graphic tee", size="M", max_price=30.0) returns 3 matching listings sorted by relevance. FitFindr picks the top result: "Faded Band Tee — $22, Depop, Good condition."
+Search: search_listings("vintage graphic tee", size="M", max_price=30.0) returns 3 matching listings sorted by relevance. FitFindr picks the top result: "Graphic Tee — 2003 Tour Bootleg Style — $24, depop, good condition."
 
 **Input parameters:**
 
@@ -51,7 +51,7 @@ If search_listings returns nothing, FitFindr tells the user what to try differen
 
 Given a thrifted item and the user's wardrobe, suggest 1–2 complete outfits.
 
-Suggest outfit: suggest_outfit(new_item=<band tee>, wardrobe=<user's wardrobe>) returns: "Pair this with your wide-leg jeans and platform Docs for a classic 90s grunge look. Roll the sleeves once and tuck the front corner slightly for shape."
+Suggest outfit: suggest_outfit(new_item=<band tee>, wardrobe=<user's wardrobe>) returns: "Pair the Graphic Tee with the baggy straight-leg jeans and black combat boots. Add the vintage black denim jacket to complete the look. This outfit is perfect for a casual, laid-back day out ---"
 
 **Input parameters:**
 
@@ -73,7 +73,7 @@ rather than raising an exception or returning an empty string.
 
 Generate a short, shareable outfit caption for the thrifted find.
 
-Fit card: create_fit_card(outfit=<suggestion>, new_item=<band tee>) returns: "thrifted this faded band tee off depop for $22 and honestly it was made for my wide-legs 🖤 full look in my stories"
+Fit card: create_fit_card(outfit=<suggestion>, new_item=<band tee>) returns: "Get ready to rock with my Graphic Tee - 2003 Tour Bootleg Style, now available on Depop for just $24. This vintage-style bootleg tee is perfect for adding a grunge touch to your wardrobe---"
 
 **Input parameters:**
 
@@ -446,9 +446,13 @@ The system returns a structured response containing:
 
 Graphic Tee — 2003 Tour Bootleg Style
 💰 Price: $24.0
+
 📏 Size: L
+
 🏷️ Brand: None
+
 📦 Platform: depop
+
 ✨ Condition: good
 
 Vintage-style bootleg tee with faded graphic. Slightly boxy fit. 100% cotton, soft and worn-in.
@@ -479,9 +483,10 @@ Get ready to rock with my Graphic Tee - 2003 Tour Bootleg Style ($24) available 
 
 If search_listings() returns an empty list:
 
-The agent stops immediately
-Sets session["error"] = "NO_RESULTS"
+The agent stops immediately sets session["error"] = "NO_RESULTS"
+
 Returns a message like:
+
 “No matching items found. Try broader keywords or increase your price range.”
 
 No further tools are called.

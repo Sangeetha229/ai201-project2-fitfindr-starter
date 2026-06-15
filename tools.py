@@ -21,7 +21,7 @@ def _get_groq_client():
 
 
 # ─────────────────────────────────────────────
-# SIZE HANDLING (FIXED ROOT ISSUE)
+# SIZE HANDLING
 # ─────────────────────────────────────────────
 
 

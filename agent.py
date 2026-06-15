@@ -16,9 +16,9 @@ def _new_session(query: str, wardrobe: dict):
     }
 
 
-# ─────────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  PARSER WITH IMPROVED SIZE DETECTION AND PRICE EXTRACTION
-# ─────────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 def _parse_query(query: str):
 
     q = query.lower()

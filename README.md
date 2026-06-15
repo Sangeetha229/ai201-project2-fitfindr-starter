@@ -231,6 +231,7 @@ Output:
 **How to Run test**
 
  python -m pip install pytest
+
  python -m pytest  
 
 
@@ -293,6 +294,9 @@ Better handling of synonyms (e.g., “boots” vs “ankle boots”)
 All enhancements are designed to preserve the current system’s strengths:
 
 modular tool structure
+
 session-based flow
+
 simple, testable components
-easy integration with LLM-based reasoning|
+
+easy integration with LLM-based reasoning
